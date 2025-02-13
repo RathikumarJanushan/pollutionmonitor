@@ -5,7 +5,8 @@ import 'package:pollutionmonitor/common_widget/tab_button.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:pollutionmonitor/wellcome/home.dart'; // Ensure Notification API is set up
+import 'package:pollutionmonitor/wellcome/home.dart';
+import 'package:pollutionmonitor/wellcome/profile_page.dart'; // Ensure Notification API is set up
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -88,7 +89,38 @@ class _MainTabViewState extends State<MainTabView> {
         child: SafeArea(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [],
+            children: [
+              // TabButton(
+              //     title: "Start",
+              //     icon: "assets/img/tab_order.png",
+              //     onTap: () {
+              //       if (selctTab != 1) {
+              //         selctTab = 1;
+              //         selectPageView = qrCode();
+              //       }
+              //       if (mounted) {
+              //         setState(() {});
+              //       }
+              //     },
+              //     isSelected: selctTab == 1),
+              const SizedBox(
+                width: 100,
+                height: 100,
+              ),
+              TabButton(
+                  title: "profile",
+                  icon: "assets/img/profile.png",
+                  onTap: () {
+                    if (selctTab != 4) {
+                      selctTab = 4;
+                      selectPageView = ProfilePage();
+                    }
+                    if (mounted) {
+                      setState(() {});
+                    }
+                  },
+                  isSelected: selctTab == 4),
+            ],
           ),
         ),
       ),
